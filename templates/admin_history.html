@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% block title %}Admin - Borrow History{% endblock %}
+{% block content %}
+<h2>📖 Borrow History (All Users)</h2>
+
+<ul>
+    {% for record in records %}
+    <li>
+        <strong>{{ record.borrower.username }}</strong> borrowed
+        <em>{{ record.book.title }}</em> on {{ record.borrow_date.strftime('%Y-%m-%d') }}
+        {% if record.return_date %}
+        (Returned: {{ record.return_date.strftime('%Y-%m-%d') }})
+        {% else %}
+        [Not Returned]
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="/admin/books">← Back to Book Management</a>
+{% endblock %}
