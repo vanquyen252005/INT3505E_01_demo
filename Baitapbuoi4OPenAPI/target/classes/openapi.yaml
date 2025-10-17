@@ -1,0 +1,210 @@
+openapi: 3.0.1
+info:
+  title: Book API
+  description: lấy danh sách, tạo, cập nhật, xóa
+  version: 1.0.0
+servers:
+  - url: http://localhost:8080
+    description: Local server
+
+paths:
+  /books:
+    get:
+      summary: Lấy danh sách sách
+      tags:
+        - Book
+      responses:
+        '200':
+          $ref: '#/components/responses/BookListResponse'
+
+    post:
+      summary: Tạo mới sách
+      tags:
+        - Book
+      requestBody:
+        $ref: '#/components/requestBodies/BookRequestBody'
+      responses:
+        '201':
+          $ref: '#/components/responses/BookCreatedResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '409':
+          $ref: '#/components/responses/ConflictResponse'
+
+  /books/{id}:
+    put:
+      summary: Cập nhật toàn bộ sách
+      tags:
+        - Book
+      parameters:
+        - $ref: '#/components/parameters/BookIdParam'
+      requestBody:
+        $ref: '#/components/requestBodies/BookRequestBody'
+      responses:
+        '200':
+          $ref: '#/components/responses/BookUpdatedResponse'
+        '400':
+          $ref: '#/components/responses/BadRequestResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+
+    patch:
+      summary: Cập nhật một phần thông tin sách
+      tags:
+        - Book
+      parameters:
+        - $ref: '#/components/parameters/BookIdParam'
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                title:
+                  type: string
+                author:
+                  type: string
+                publisher:
+                  type: string
+                stockQuantity:
+                  type: integer
+      responses:
+        '200':
+          $ref: '#/components/responses/BookUpdatedResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+
+    delete:
+      summary: Xóa sách
+      tags:
+        - Book
+      parameters:
+        - $ref: '#/components/parameters/BookIdParam'
+      responses:
+        '204':
+          $ref: '#/components/responses/NoContentResponse'
+        '404':
+          $ref: '#/components/responses/NotFoundResponse'
+
+components:
+  schemas:
+    Book:
+      type: object
+      properties:
+        id:
+          type: integer
+          example: 1
+        title:
+          type: string
+          example: Dac Nhan Tam
+        author:
+          type: string
+          example: Dale Carnegie
+        publisher:
+          type: string
+          example: Nha Xuat Ban Tre
+        stockQuantity:
+          type: integer
+          example: 100
+
+    BookRequest:
+      type: object
+      required:
+        - title
+        - author
+        - publisher
+        - stockQuantity
+      properties:
+        title:
+          type: string
+          example: Dac Nhan Tam
+        author:
+          type: string
+          example: Dale Carnegie
+        publisher:
+          type: string
+          example: Nha Xuat Ban Tre
+        stockQuantity:
+          type: integer
+          example: 50
+
+    ApiResponse:
+      type: object
+      properties:
+        message:
+          type: string
+          example: Success
+        data:
+          $ref: '#/components/schemas/Book'
+
+  parameters:
+    BookIdParam:
+      name: id
+      in: path
+      required: true
+      schema:
+        type: integer
+      description: ID của sách
+
+  responses:
+    BookListResponse:
+      description: Danh sách sách
+      content:
+        application/json:
+          schema:
+            type: array
+            items:
+              $ref: '#/components/schemas/Book'
+
+    BookCreatedResponse:
+      description: Tạo sách thành công
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiResponse'
+
+    BookUpdatedResponse:
+      description: Cập nhật sách thành công
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/ApiResponse'
+
+    BadRequestResponse:
+      description: Dữ liệu không hợp lệ
+
+    ConflictResponse:
+      description: Sách đã tồn tại (trùng tiêu đề)
+
+    NotFoundResponse:
+      description: Không tìm thấy sách
+
+    NoContentResponse:
+      description: Xóa thành công (No Content)
+
+  requestBodies:
+    BookRequestBody:
+      description: Thông tin sách cần tạo/cập nhật
+      required: true
+      content:
+        application/json:
+          schema:
+            $ref: '#/components/schemas/BookRequest'
+
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+security:
+  - BearerAuth: []
+
+tags:
+  - name: Book
+    description: Các API quản lý sách
+
+externalDocs:
+  description: Tài liệu OpenAPI tham khảo
+  url: https://swagger.io/specification/
