@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import db, Book, BorrowRecord
+from Rest_Library_Flask_version1.models import db, Book, BorrowRecord
 
 admin_bp = Blueprint("admin", __name__)
 
