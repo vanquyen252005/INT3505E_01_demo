@@ -1,8 +1,8 @@
 from flask import Flask
 from config import Config
 from models import db
-from Rest_Library_Flask_version2.routes.admin import admin_bp
-from Rest_Library_Flask_version2.routes.user import user_bp
+from Rest_library_Flask_version3.routes.admin import admin_bp
+from Rest_library_Flask_version3.routes.user import user_bp
 
 app = Flask(__name__)
 app.config.from_object(Config)
