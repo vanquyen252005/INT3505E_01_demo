@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}User - Lịch sử mượn - trả sách{% endblock %}
+
+{% block content %}
+<h2>📖 Lịch sử mượn - trả sách</h2>
+
+{% if records %}
+<table class="table table-bordered table-striped">
+  <thead class="table-primary">
+    <tr>
+      <th>STT</th>
+      <th>Tên sách</th>
+      <th>Tác giả</th>
+      <th>Ngày mượn</th>
+      <th>Ngày trả</th>
+    </tr>
+  </thead>
+  <tbody>
+    {% for record in records %}
+    <tr>
+      <td>{{ loop.index }}</td>
+      <td>{{ record.book.title }}</td>
+      <td>{{ record.book.author }}</td>
+      <td>{{ record.borrow_date.strftime('%Y-%m-%d') }}</td>
+      <td>
+        {% if record.return_date %}
+          {{ record.return_date.strftime('%Y-%m-%d') }}
+        {% else %}
+          <a href="{{ url_for('user.return_book', record_id=record.id) }}"
+             onclick="return confirm('Bạn có chắc chắn muốn trả sách này?');">[Trả sách]</a>
+        {% endif %}
+      </td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% else %}
+<p>Bạn chưa có lịch sử mượn/trả sách nào.</p>
+{% endif %}
+
+<a href="{{ url_for('user.books') }}">← Quay lại danh sách sách</a>
+{% endblock %}

@@ -18,11 +18,11 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="demo" />
         <module name="Baitapbuoi4OPenAPI" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="demo" target="17" />
       <module name="SOA_Resful" target="1.8" />
     </bytecodeTargetLevel>
   </component>

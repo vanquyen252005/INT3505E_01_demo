@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block title %}User - Book List{% endblock %}
+{% block content %}
+<h2>📗 Available Books</h2>
+
+<ul>
+    {% for book in books %}
+    <li>
+        <strong>{{ book.title }}</strong> - {{ book.author }}
+        {% if book.available %}
+        <form method="post" action="/user/borrow/{{ book.id }}">
+            <input type="hidden" name="user_id" value="2">  <!-- giả định user ID là 2 -->
+            <button type="submit">Borrow</button>
+        </form>
+        {% else %}
+        (Borrowed)
+        {% endif %}
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="/user/history/2">View My Borrow History</a>
+{% endblock %}
