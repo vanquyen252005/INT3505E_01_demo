@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import db, Book, BorrowRecord, User
+from Rest_Library_Flask_version2.models import db, Book, BorrowRecord
 from datetime import datetime
 
 user_bp = Blueprint("user", __name__)

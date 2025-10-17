@@ -1,5 +1,5 @@
 from flask import Blueprint, render_template, request, redirect, url_for,jsonify,make_response
-from models import db, Book, BorrowRecord
+from Rest_Library_Flask_version2.models import db, Book, BorrowRecord
 from datetime import datetime
 
 admin_bp = Blueprint("admin", __name__)
@@ -24,10 +24,10 @@ def books():
 
         response = make_response(jsonify({
             "books": books_data,
-            "_links": {
-                "self": url_for("admin.books", _external=True),
-                "add": url_for("admin.add_book", _external=True)
-            },
+            # "_links": {
+            #     "self": url_for("admin.books", _external=True),
+            #     "add": url_for("admin.add_book", _external=True)
+            # },
             "_meta": {
                 "total": len(books_data),
                 "cached_at": datetime.utcnow().isoformat() + "Z"
@@ -43,7 +43,7 @@ def books():
     else:
         response = make_response(render_template("admin_books.html", books=books))
         # Cache tạm trong 60s cho giao diện (tùy chọn)
-        response.headers["Cache-Control"] = "public, max-age=60"
+        # response.headers["Cache-Control"] = "public, max-age=60"
         return response
 
 @admin_bp.route("/books/<int:id>", methods=["GET"])
@@ -91,10 +91,10 @@ def delete_book(id):
     if request.is_json or request.method == "DELETE":
         return jsonify({
             "message": f"Book with id={id} deleted successfully",
-            "_links": {
-                "all_books": url_for("admin.books", _external=True),
-                "add_book": url_for("admin.add_book", _external=True)
-            }
+            # "_links": {
+            #     "all_books": url_for("admin.books", _external=True),
+            #     "add_book": url_for("admin.add_book", _external=True)
+            # }
         }), 200
 
     return redirect(url_for("admin.books"))
