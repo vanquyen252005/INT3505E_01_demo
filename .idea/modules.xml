@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/INT3505E_01_demo.iml" filepath="$PROJECT_DIR$/.idea/INT3505E_01_demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/VersionAPI_BTVN_tuan6.iml" filepath="$PROJECT_DIR$/VersionAPI_BTVN_tuan6.iml" />
     </modules>
   </component>
 </project>

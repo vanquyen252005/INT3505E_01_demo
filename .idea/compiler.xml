@@ -18,6 +18,7 @@
         <processorPath useClasspath="false">
           <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.38/lombok-1.18.38.jar" />
         </processorPath>
+        <module name="VersionAPI_BTVN_tuan6" />
         <module name="demo" />
         <module name="Baitapbuoi4OPenAPI" />
       </profile>
@@ -29,6 +30,7 @@
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="Baitapbuoi4OPenAPI" options="-parameters" />
+      <module name="VersionAPI_BTVN_tuan6" options="-parameters" />
       <module name="demo" options="-parameters" />
     </option>
   </component>
