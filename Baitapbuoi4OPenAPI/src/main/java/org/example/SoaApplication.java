@@ -2,8 +2,10 @@ package org.example;
 
 import io.swagger.v3.oas.annotations.ExternalDocumentation;
 import io.swagger.v3.oas.annotations.OpenAPIDefinition;
+import io.swagger.v3.oas.annotations.enums.SecuritySchemeType;
 import io.swagger.v3.oas.annotations.info.Info;
 import io.swagger.v3.oas.annotations.security.SecurityRequirement;
+import io.swagger.v3.oas.annotations.security.SecurityScheme;
 import io.swagger.v3.oas.annotations.servers.Server;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.boot.SpringApplication;
@@ -19,7 +21,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 @Server(url = "http://localhost:8080", description = "Local server")
         },
         security = {
-                @SecurityRequirement(name = "BearerAuth")
+                @SecurityRequirement(name = "bearerAuth")
         },
         tags = {
                 @Tag(name = "Book", description = "Các API quản lý sách")
@@ -28,6 +30,12 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
                 description = "Tài liệu OpenAPI tham khảo",
                 url = "https://swagger.io/specification/"
         )
+)
+@SecurityScheme(
+        name = "bearerAuth",
+        type = SecuritySchemeType.HTTP,
+        scheme = "bearer",
+        bearerFormat = "JWT"
 )
 @SpringBootApplication
 public class SoaApplication {

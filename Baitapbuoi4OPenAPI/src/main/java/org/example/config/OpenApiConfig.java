@@ -11,13 +11,13 @@ public class OpenApiConfig {
     public OpenAPI customOpenAPI() {
         return new OpenAPI()
                 .components(new Components()
-                        .addSecuritySchemes("BearerAuth",
+                        .addSecuritySchemes("bearerAuth",
                                 new SecurityScheme()
                                         .type(SecurityScheme.Type.HTTP)
                                         .scheme("bearer")
                                         .bearerFormat("JWT")
                         )
                 )
-                .addSecurityItem(new SecurityRequirement().addList("BearerAuth"));
+                .addSecurityItem(new SecurityRequirement().addList("bearerAuth"));
     }
 }

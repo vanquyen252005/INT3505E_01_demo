@@ -8,10 +8,16 @@
         <option value="$PROJECT_DIR$/SOA_Resful/pom.xml" />
         <option value="$PROJECT_DIR$/Baitapbuoi4OPenAPI/pom.xml" />
         <option value="$PROJECT_DIR$/VersionAPI_BTVN_tuan6/pom.xml" />
+        <option value="$PROJECT_DIR$/Baitapbuoi4OPenAPI_Version2/pom.xml" />
+        <option value="$PROJECT_DIR$/OpenAPI_version2/pom.xml" />
+        <option value="$PROJECT_DIR$/openapi_v2/pom.xml" />
+        <option value="$PROJECT_DIR$/BTVN_tuan7/pom.xml" />
       </list>
     </option>
     <option name="ignoredFiles">
       <set>
+        <option value="$PROJECT_DIR$/Baitapbuoi4OPenAPI_Version2/pom.xml" />
+        <option value="$PROJECT_DIR$/OpenAPI_version2/pom.xml" />
         <option value="$PROJECT_DIR$/Resful_API/pom.xml" />
         <option value="$PROJECT_DIR$/SOA_Resful/pom.xml" />
       </set>
