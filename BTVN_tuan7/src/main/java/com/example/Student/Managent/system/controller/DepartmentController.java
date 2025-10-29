@@ -10,10 +10,11 @@ import com.example.Student.Managent.system.service.DepartmentService;
 import com.example.Student.Managent.system.service.ClassroomService;
 import com.example.Student.Managent.system.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
+import org.springframework.data.domain.Page;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -42,7 +43,7 @@ public class DepartmentController {
         Department department = departmentService.getDepartmentById(departmentId);
         return ResponseEntity.ok(department);
     }
-
+// Xem cac lop trong 1 khoa
     @GetMapping("/{departmentId}/classes")
     public ResponseEntity<List<Classroom>> viewClassesInDepartment(@PathVariable Long departmentId) {
         List<Classroom> classes = classroomService.getClassesByDepartmentId(departmentId);
@@ -50,13 +51,11 @@ public class DepartmentController {
     }
     // Lay tat ca cac hoc sinh trong cung 1 khoa
     @GetMapping("/{departmentId}/classes/students")
-    public ResponseEntity<List<Student>> viewStudentInDepartment(@PathVariable Long departmentId) {
-        List<Student> students = new ArrayList<>();
-        List<Classroom> classes = classroomService.getClassesByDepartmentId(departmentId);
-        for(int i=0;i<classes.size();i++) {
-            List<Student> studentInClass = studentService.findByClassroomId(classes.get(i).getId());
-            students.addAll(studentInClass);
-        }
+    public ResponseEntity<Page<Student>> viewStudentInDepartment(@PathVariable Long departmentId,
+                                                                 @RequestParam(defaultValue = "0") int page,
+                                                                 @RequestParam(defaultValue = "10") int size) {
+        Pageable pageable = PageRequest.of(page,size);
+        Page<Student> students = studentService.findStudentsWithClassAndDepartment(departmentId,pageable);
         return ResponseEntity.ok(students);
     }
     @PostMapping

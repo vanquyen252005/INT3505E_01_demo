@@ -4,6 +4,8 @@ import com.example.Student.Managent.system.entity.Student;
 import com.example.Student.Managent.system.repository.StudentRepository;
 import com.example.Student.Managent.system.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -44,4 +46,10 @@ public class StudentServiceImpl implements StudentService {
     public List<Student> findByClassroomId(Long classroomId) {
         return (List<Student>) studentRepository.findByClassroomId(classroomId);
     }
+
+    @Override
+    public Page<Student> findStudentsWithClassAndDepartment(Long departmentId, Pageable pageable) {
+        return studentRepository.findStudentsWithClassAndDepartment(departmentId,pageable);
+    }
+
 }
