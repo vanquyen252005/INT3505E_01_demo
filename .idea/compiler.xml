@@ -10,8 +10,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="DEMoBai6_Authorization" />
       </profile>
-      <profile name="Annotation profile for BTVN_tuan7" enabled="true">
+      <profile name="Annotation profile for openapi_v2" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
