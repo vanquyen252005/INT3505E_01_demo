@@ -25,7 +25,7 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
         JOIN classroom c ON c.id = s.classroom_id
         JOIN department d ON d.id = c.department_id
         WHERE d.id = :departmentId
-   \s""",
+   """,
         countQuery = """
         SELECT COUNT(*)
         FROM student s
@@ -37,4 +37,4 @@ public interface StudentRepository extends JpaRepository<Student,Long> {
     Page<Student> findStudentsWithClassAndDepartment(@Param("departmentId") Long departmentId, Pageable pageable);
     List<Student> findByClassroomId(Long classroomId);
 }
-    
+
