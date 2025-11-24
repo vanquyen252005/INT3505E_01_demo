@@ -1,0 +1,708 @@
+{
+	"id": "37fe7479-3c88-4b6b-a971-ee1ee0a7e1cf",
+	"name": "MongoDb",
+	"timestamp": "2025-11-12T03:53:44.295Z",
+	"collection_id": "46950517-0684e180-3628-42e0-b88f-f6e745845a06",
+	"folder_id": 0,
+	"environment_id": "0",
+	"totalPass": 50,
+	"delay": 0,
+	"persist": true,
+	"status": "finished",
+	"startedAt": "2025-11-12T03:53:42.192Z",
+	"totalFail": 6,
+	"results": [
+		{
+			"id": "7f1f972b-b231-4ce5-994f-118bd9132eeb",
+			"name": "Create a product successfully",
+			"url": "http://localhost:9090/api/products",
+			"time": 200,
+			"responseCode": {
+				"code": 201,
+				"name": "Created"
+			},
+			"tests": {
+				"Status code is 201": true,
+				"Status code name has string Created": true,
+				"Body matches string": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 201": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string Created": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				200
+			],
+			"allTests": [
+				{
+					"Status code is 201": true,
+					"Status code name has string Created": true,
+					"Body matches string": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "50df4908-1d1c-4f92-8e42-4bfa75d5ca1c",
+			"name": "Create a product failed by dupplicate id",
+			"url": "http://localhost:9090/api/products",
+			"time": 249,
+			"responseCode": {
+				"code": 409,
+				"name": "Conflict"
+			},
+			"tests": {
+				"Status code is 409": true,
+				"Status code name has string Conflict": true,
+				"Body matches string": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 409": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string Conflict": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				249
+			],
+			"allTests": [
+				{
+					"Status code is 409": true,
+					"Status code name has string Conflict": true,
+					"Body matches string": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "151b0fa2-bcfd-4adf-a60e-f8fe0e8f7da1",
+			"name": "Create a product failed as  Price < 0",
+			"url": "http://localhost:9090/api/products",
+			"time": 5,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Status code name has string Bad Request": true,
+				"Body matches string": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string Bad Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				5
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Status code name has string Bad Request": true,
+					"Body matches string": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "3543d64e-b8ab-4347-bea3-a5fa106965e7",
+			"name": "Create a product failed because Name is blank",
+			"url": "http://localhost:9090/api/products",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Status code name has string Bad Request": true,
+				"Body matches string": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string Bad Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Status code name has string Bad Request": true,
+					"Body matches string": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "78cfbc2f-46e1-42f4-b0c0-5bd12fc31bab",
+			"name": "Get all products Exception authenticating MongoCredential",
+			"url": "http://localhost:9090/api/products",
+			"time": 54,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 500": false,
+				"Status code name has string ": false,
+				"Body matches string": false,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 500": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has string ": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body matches string": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				54
+			],
+			"allTests": [
+				{
+					"Status code is 500": false,
+					"Status code name has string ": false,
+					"Body matches string": false,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "5c1c8eca-7579-4177-9703-9449fe62ee0b",
+			"name": "Get all products successfully",
+			"url": "http://localhost:9090/api/products",
+			"time": 47,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name has string ": true,
+				"Body matches string": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has string ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				47
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name has string ": true,
+					"Body matches string": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "4ebc0f0c-1584-49c3-8430-f3a6c3eaf814",
+			"name": "update a product  with Price < 0",
+			"url": "http://localhost:9090/api/products/2",
+			"time": 4,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Status code name has Bad Request": true,
+				"Body matches string Product not found with ID": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has Bad Request": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Product not found with ID": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				4
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Status code name has Bad Request": true,
+					"Body matches string Product not found with ID": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "b718baf7-ace0-4a5f-bfe1-f6e170ae427f",
+			"name": "update a product Resource not Found",
+			"url": "http://localhost:9090/api/products/1",
+			"time": 182,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 404": false,
+				"Status code name has Not Found": false,
+				"Body matches string Product not found with ID": false,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Status code name has Not Found": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Body matches string Product not found with ID": {
+					"pass": 0,
+					"fail": 1
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				182
+			],
+			"allTests": [
+				{
+					"Status code is 404": false,
+					"Status code name has Not Found": false,
+					"Body matches string Product not found with ID": false,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "4b15e226-1db6-4065-b084-920759b65265",
+			"name": "update a product Product Name cannot be blank",
+			"url": "http://localhost:9090/api/products/1",
+			"time": 6,
+			"responseCode": {
+				"code": 400,
+				"name": "Bad Request"
+			},
+			"tests": {
+				"Status code is 400": true,
+				"Status code name has 'Bad Request'": true,
+				"Body matches string Product name cannot be blank": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 400": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has 'Bad Request'": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Product name cannot be blank": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				6
+			],
+			"allTests": [
+				{
+					"Status code is 400": true,
+					"Status code name has 'Bad Request'": true,
+					"Body matches string Product name cannot be blank": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "2ed57239-0b5e-490b-8bdf-ac86d2491885",
+			"name": "update a product Successfully",
+			"url": "http://localhost:9090/api/products/2",
+			"time": 115,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name has OK": true,
+				"Body matches string Product updated successfully": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Product updated successfully": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				115
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name has OK": true,
+					"Body matches string Product updated successfully": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "2843ac90-06c4-47f2-89a5-623a76358e93",
+			"name": "Delete a product successfully",
+			"url": "http://localhost:9090/api/products/2",
+			"time": 244,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name has OK": true,
+				"Body matches string Product deleted successfully": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Product deleted successfully": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				244
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name has OK": true,
+					"Body matches string Product deleted successfully": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "b979e713-9257-4de2-bcf5-6f69b1bd16ff",
+			"name": "Delete a product Resource not found",
+			"url": "http://localhost:9090/api/products/2",
+			"time": 180,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Status code name has Not Found": true,
+				"Body matches string Resource not found ": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Resource not found ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				180
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Status code name has Not Found": true,
+					"Body matches string Resource not found ": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "9be0e3c0-d3a0-429b-a2d3-76c868695425",
+			"name": "Get a Product Resource not Found",
+			"url": "http://localhost:9090/api/products/2",
+			"time": 85,
+			"responseCode": {
+				"code": 404,
+				"name": "Not Found"
+			},
+			"tests": {
+				"Status code is 404": true,
+				"Status code name has Not Found": true,
+				"Body matches string Resource not found ": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 404": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has Not Found": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Resource not found ": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				85
+			],
+			"allTests": [
+				{
+					"Status code is 404": true,
+					"Status code name has Not Found": true,
+					"Body matches string Resource not found ": true,
+					"Content-Type is present": true
+				}
+			]
+		},
+		{
+			"id": "8f508bed-5597-4a29-9622-ee9a821cba9e",
+			"name": "Get a Product successfully",
+			"url": "http://localhost:9090/api/products/3",
+			"time": 157,
+			"responseCode": {
+				"code": 200,
+				"name": "OK"
+			},
+			"tests": {
+				"Status code is 200": true,
+				"Status code name has OK": true,
+				"Body matches string Product retrieved successfully": true,
+				"Content-Type is present": true
+			},
+			"testPassFailCounts": {
+				"Status code is 200": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Status code name has OK": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Body matches string Product retrieved successfully": {
+					"pass": 1,
+					"fail": 0
+				},
+				"Content-Type is present": {
+					"pass": 1,
+					"fail": 0
+				}
+			},
+			"times": [
+				157
+			],
+			"allTests": [
+				{
+					"Status code is 200": true,
+					"Status code name has OK": true,
+					"Body matches string Product retrieved successfully": true,
+					"Content-Type is present": true
+				}
+			]
+		}
+	],
+	"count": 1,
+	"totalTime": 1532,
+	"collection": {
+		"requests": [
+			{
+				"id": "7f1f972b-b231-4ce5-994f-118bd9132eeb",
+				"method": "POST"
+			},
+			{
+				"id": "50df4908-1d1c-4f92-8e42-4bfa75d5ca1c",
+				"method": "POST"
+			},
+			{
+				"id": "151b0fa2-bcfd-4adf-a60e-f8fe0e8f7da1",
+				"method": "POST"
+			},
+			{
+				"id": "3543d64e-b8ab-4347-bea3-a5fa106965e7",
+				"method": "POST"
+			},
+			{
+				"id": "78cfbc2f-46e1-42f4-b0c0-5bd12fc31bab",
+				"method": "GET"
+			},
+			{
+				"id": "5c1c8eca-7579-4177-9703-9449fe62ee0b",
+				"method": "GET"
+			},
+			{
+				"id": "4ebc0f0c-1584-49c3-8430-f3a6c3eaf814",
+				"method": "PUT"
+			},
+			{
+				"id": "b718baf7-ace0-4a5f-bfe1-f6e170ae427f",
+				"method": "PUT"
+			},
+			{
+				"id": "4b15e226-1db6-4065-b084-920759b65265",
+				"method": "PUT"
+			},
+			{
+				"id": "2ed57239-0b5e-490b-8bdf-ac86d2491885",
+				"method": "PUT"
+			},
+			{
+				"id": "2843ac90-06c4-47f2-89a5-623a76358e93",
+				"method": "DELETE"
+			},
+			{
+				"id": "b979e713-9257-4de2-bcf5-6f69b1bd16ff",
+				"method": "DELETE"
+			},
+			{
+				"id": "9be0e3c0-d3a0-429b-a2d3-76c868695425",
+				"method": "GET"
+			},
+			{
+				"id": "8f508bed-5597-4a29-9622-ee9a821cba9e",
+				"method": "GET"
+			}
+		]
+	}
+}
