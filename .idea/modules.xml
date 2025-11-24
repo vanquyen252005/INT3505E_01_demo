@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/BTVN_tuan7.iml" filepath="$PROJECT_DIR$/BTVN_tuan7.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Demo_Tuan7_Generate_backend_from_open_api.iml" filepath="$PROJECT_DIR$/Demo_Tuan7_Generate_backend_from_open_api.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/INT3505E_01_demo.iml" filepath="$PROJECT_DIR$/.idea/INT3505E_01_demo.iml" />
       <module fileurl="file://$PROJECT_DIR$/VersionAPI_BTVN_tuan6.iml" filepath="$PROJECT_DIR$/VersionAPI_BTVN_tuan6.iml" />
       <module fileurl="file://$PROJECT_DIR$/hello1/hello1.iml" filepath="$PROJECT_DIR$/hello1/hello1.iml" />

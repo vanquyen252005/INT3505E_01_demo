@@ -10,6 +10,7 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="Demo_Tuan7_Generate_backend_from_openAPI_Version2" />
         <module name="DEMoBai6_Authorization" />
       </profile>
       <profile name="Annotation profile for openapi_v2" enabled="true">
@@ -36,6 +37,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="BTVN_tuan7" options="-parameters" />
       <module name="Baitapbuoi4OPenAPI" options="-parameters" />
+      <module name="Demo_Tuan7_Generate_backend_from_openAPI_Version2" options="-parameters" />
       <module name="VersionAPI_BTVN_tuan6" options="-parameters" />
       <module name="demo" options="-parameters" />
       <module name="demo (1)" options="-parameters" />
